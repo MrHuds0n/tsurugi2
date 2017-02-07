@@ -1,0 +1,40 @@
+head
+  link(rel="stylesheet",href="style.css")
+  meta(name="viewport", content="width=device-width, initial-scale=1")
+body
+  .wrapper
+    header.header
+      h1 Tsurugi
+      hr
+      h2 Netrunner Reddit Card Generator
+      h3 by #[a(href="http://corile.gq") Corile]
+    .container
+      section.left
+        .menu
+          .hover-left#corpid Corp Identity
+            .card-create.corpid.inactive
+              .form-group
+                input(type="text", placeholder="Name")
+              .form-group
+                input(type="text", placeholder="Subtitle")
+              .form-group
+                input(type="number", placeholder="Deck Size")
+                input(type="number", placeholder="Influence Limit")
+              .form-group
+                button return
+                button create
+          .hover-left#agenda Agenda
+          .hover-left#asset Asset
+          .hover-left#ice ICE
+          .hover-left#upgrade Upgrade
+          .hover-left#operation Operation
+
+      section.right
+        .menu
+          .hover-right#runnerid Runner Identity
+          .hover-right#program Program
+          .hover-right#hardware Hardware
+          .hover-right#resource Resource
+          .hover-right#event Event
+
+  script(src="script.js")

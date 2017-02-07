@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata|Overpass:100,300,400");
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+@media (max-width: 960px) {
+  html {
+    font-size: 18px;
+  }
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(270deg, #001a1e, #00483e);
+  background-size: 400% 400%;
+  animation: BackgroundGradient 20s ease infinite;
+}
+a {
+  text-decoration: none;
+  color: #ecfef4;
+}
+.wrapper {
+  max-width: 960px;
+  font-family: "Overpass", "Helvetica", "Arial", sans-serif;
+  color: #ecfef4;
+  width: 100%;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0px 0px 5px #000;
+}
+.header h1 {
+  font-weight: 200;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  margin-right: -0.5rem;
+}
+.header hr {
+  border: 1px rgba(236,254,244,0.9) solid;
+  border-bottom: none;
+  margin-bottom: 1rem;
+  width: 33%;
+  height: 1px;
+}
+.header h2 {
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+.header h3 {
+  font-weight: 200;
+  font-size: 0.7rem;
+}
+.container {
+  display: flex;
+}
+@media (max-width: 960px) {
+  .container {
+    flex-wrap: wrap;
+  }
+}
+.left,
+.right {
+  border: 1px #ecfef4 solid;
+  width: 100%;
+  height: 25rem;
+  margin: 1rem;
+  overflow: hidden;
+}
+.left .menu,
+.right .menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  transition: left 0.3s ease-in-out;
+}
+.left .menu div,
+.right .menu div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 200;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  user-select: none;
+  cursor: pointer;
+  transition: height 0.4s ease-in-out 0.2s, background-position 0.7s ease-in-out, color 0.4s ease-in-out, opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+.left .menu div.inactive,
+.right .menu div.inactive {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.left .menu div.active,
+.right .menu div.active {
+  background-position: 0;
+  color: #ecfef4;
+}
+.left .menu div .card-create,
+.right .menu div .card-create {
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: height 0.4s ease-in-out 0.2s, opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+.left .menu div .card-create.inactive,
+.right .menu div .card-create.inactive {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.left .menu div .card-create .form-group,
+.right .menu div .card-create .form-group {
+  display: flex;
+}
+.hover-left,
+.hover-right {
+  position: relative;
+}
+.hover-left:after,
+.hover-right:after,
+.hover-left:before,
+.hover-right:before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 0;
+  transition: width 0.3s ease-in-out;
+}
+.hover-left:after,
+.hover-right:after {
+  top: 0;
+  left: 0;
+  border-top: 1px #ecfef4 solid;
+}
+.hover-left:before,
+.hover-right:before {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px #ecfef4 solid;
+}
+.hover-left:hover,
+.hover-right:hover {
+  background-position: 0;
+  color: #00483e;
+}
+.hover-left:hover:after,
+.hover-right:hover:after {
+  width: 100%;
+}
+.hover-left:hover:before,
+.hover-right:hover:before {
+  width: 100%;
+}
+.hover-left {
+  background: linear-gradient(240deg, transparent, transparent 50%, #ecfef4 50%, #ecfef4);
+  background-size: 300%, 300%;
+  background-position: 100%;
+}
+.hover-left:hover {
+  background-position: 0;
+}
+.hover-right {
+  background: linear-gradient(240deg, #ecfef4, #ecfef4 50%, transparent 50%, transparent);
+  background-size: 300%, 300%;
+  background-position: 0;
+}
+.hover-right:hover {
+  background-position: 100%;
+}
+@-moz-keyframes BackgroundGradient {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@-webkit-keyframes BackgroundGradient {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@-o-keyframes BackgroundGradient {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@keyframes BackgroundGradient {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@-moz-keyframes Init {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: initial;
+  }
+}
+@-webkit-keyframes Init {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: initial;
+  }
+}
+@-o-keyframes Init {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: initial;
+  }
+}
+@keyframes Init {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: initial;
+  }
+}

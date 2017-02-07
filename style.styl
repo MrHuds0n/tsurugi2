@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Overpass:100,300,400');
+
+bg = #001A1E
+bg2 = #00483E
+wh = #ecfef4
+
+body-font = "Overpass", "Helvetica", "Arial", sans-serif
+mono-font = "Inconsolata", "Menlo", "Roboto Mono", "Consolas", monospace
+
+*, *:after, *:before
+  margin 0
+  padding 0
+  box-sizing border-box
+
+html
+  font-size 16px
+
+  @media (max-width: 960px)
+    font-size 18px
+
+body
+  height 100vh
+  width 100vw
+
+  display flex
+  justify-content space-around
+  align-items center
+
+  background: linear-gradient(270deg, bg, bg2);
+  background-size: 400% 400%;
+  animation BackgroundGradient 20s ease infinite
+
+a
+  text-decoration none
+  color wh
+
+.wrapper
+  max-width 960px
+  font-family body-font
+  color wh
+  width 100%
+
+.header
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+  text-shadow 0px 0px 5px black
+
+  h1
+    font-weight 200
+    font-size 3.5rem
+    text-transform uppercase
+    letter-spacing .5rem
+    margin-right -.5rem
+
+  hr
+    border 1px rgba(wh, .9) solid
+    border-bottom none
+    margin-bottom 1rem
+    width 33%
+    height 1px
+
+  h2
+    font-weight 200
+    font-size 1.2rem
+
+  h3
+    font-weight 200
+    font-size .7rem
+
+.container
+    display flex
+    @media (max-width 960px)
+      flex-wrap wrap
+
+  .left, .right
+    border 1px wh solid
+    width 100%
+    height 25rem
+    margin 1rem
+    overflow hidden
+
+    .menu
+      display flex
+      flex-direction column
+      justify-content space-between
+      position relative
+
+      width 100%
+      height 100%
+
+      left 0
+      transition left .3s ease-in-out
+
+      div
+        height 100%
+        width 100%
+        display flex
+        align-items center
+        justify-content center
+
+        font-weight 200
+        font-size 1.5rem
+        text-transform uppercase
+        user-select none
+        cursor pointer
+
+        transition height .4s ease-in-out .2s,
+                   background-position .7s ease-in-out,
+                   color .4s ease-in-out,
+                   opacity .2s ease-in-out,
+                   visibility .2s ease-in-out
+
+        &.inactive
+          height 0
+          opacity 0
+          visibility hidden
+
+        &.active
+          background-position 0
+          color wh
+
+        .card-create
+          height 100%
+          opacity 1
+          visibility visible
+          position absolute
+          top 0
+          left 0
+
+          transition height .4s ease-in-out .2s,
+                     opacity .2s ease-in-out,
+                     visibility .2s ease-in-out
+
+          display flex
+          flex-direction column
+
+          &.inactive
+            height 0
+            opacity 0
+            visibility hidden
+
+          .form-group
+            display flex
+
+.hover-left, .hover-right
+  position relative
+
+
+  &:after, &:before
+    content ''
+    display block
+    position absolute
+    height 100%
+    width 0
+    transition width .3s ease-in-out
+
+
+  &:after
+    top 0
+    left 0
+    border-top 1px wh solid
+
+  &:before
+    bottom 0
+    right 0
+    border-bottom 1px wh solid
+
+  &:hover
+    &:after
+      width 100%
+    &:before
+      width 100%
+    background-position: 0
+    color bg2
+
+.hover-left
+  background: linear-gradient(240deg, transparent, transparent 50%, wh 50%, wh);
+  background-size 300%, 300%
+  background-position 100%
+
+  &:hover
+    background-position 0
+
+.hover-right
+  background: linear-gradient(240deg, wh, wh 50%, transparent 50%, transparent);
+  background-size 300%, 300%
+  background-position 0
+
+  &:hover
+    background-position 100%
+
+@keyframes BackgroundGradient
+  0%{background-position:0% 51%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 51%}
+
+@keyframes Init
+  0%
+    height: 0px
+  100%
+    height: initial
