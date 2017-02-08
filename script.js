@@ -9,6 +9,14 @@ function $A(q) {
 //*
 $(".left").addEventListener("click", (e) => {
 
+  let elements = $(".left")
+
+  elements.childNodes.map((element) => {
+    return e.target == element
+  })
+
+  console.log(elements);
+
   for(element of e.target.parentNode.childNodes) {
     if(e.target!=element)
       element.classList.add("inactive")

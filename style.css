@@ -123,6 +123,7 @@ a {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 17;
   transition: height 0.4s ease-in-out 0.2s, opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
